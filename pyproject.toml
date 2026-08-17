@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "k3-z9z-toolkit"
+version = "0.1.0"
+description = "Universal K₃ × Z/9Z topology framework for adaptive coordination systems"
+readme = "k3_z9z_toolkit/README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Jeffrey S. Hardin", email = "contact@natural-emergence.com"},
+    {name = "Claude", email = "claude@anthropic.com"}
+]
+keywords = [
+    "topology",
+    "synchronization",
+    "optimization",
+    "universal-principle",
+    "k3",
+    "z9z",
+    "coordination",
+    "physics",
+    "machine-learning",
+    "biology"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+dependencies = [
+    "numpy>=1.20.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/Natural-Emergence/natural-emergence"
+Repository = "https://github.com/Natural-Emergence/natural-emergence"
+Documentation = "https://github.com/Natural-Emergence/natural-emergence/tree/claude/kuramoto-caliber-simulator-ugj4hf/k3_z9z_toolkit"
+Issues = "https://github.com/Natural-Emergence/natural-emergence/issues"
+
+[tool.setuptools]
+packages = ["k3_z9z_toolkit", "k3_z9z_toolkit.core", "k3_z9z_toolkit.adapters", "k3_z9z_toolkit.tests"]

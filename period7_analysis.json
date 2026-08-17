@@ -1,0 +1,1039 @@
+{
+  "hc_constants": {
+    "chi": 24,
+    "k": 3,
+    "n": 9,
+    "sync": 7,
+    "unsync": 2,
+    "s_star": 0.7777777777777778,
+    "s_star_fraction": "7/9",
+    "HANNAH": 46,
+    "Tc": 43,
+    "step": 18
+  },
+  "period7_law": {
+    "verified": true,
+    "k_max": 100,
+    "sync_islands": [
+      {
+        "k": 5,
+        "Z": 133,
+        "factors": [
+          7,
+          19
+        ]
+      },
+      {
+        "k": 12,
+        "Z": 259,
+        "factors": [
+          7,
+          37
+        ]
+      },
+      {
+        "k": 19,
+        "Z": 385,
+        "factors": [
+          5,
+          7,
+          11
+        ]
+      },
+      {
+        "k": 26,
+        "Z": 511,
+        "factors": [
+          7,
+          73
+        ]
+      },
+      {
+        "k": 33,
+        "Z": 637,
+        "factors": [
+          7,
+          7,
+          13
+        ]
+      },
+      {
+        "k": 40,
+        "Z": 763,
+        "factors": [
+          7,
+          109
+        ]
+      },
+      {
+        "k": 47,
+        "Z": 889,
+        "factors": [
+          7,
+          127
+        ]
+      },
+      {
+        "k": 54,
+        "Z": 1015,
+        "factors": [
+          5,
+          7,
+          29
+        ]
+      },
+      {
+        "k": 61,
+        "Z": 1141,
+        "factors": [
+          7,
+          163
+        ]
+      },
+      {
+        "k": 68,
+        "Z": 1267,
+        "factors": [
+          7,
+          181
+        ]
+      },
+      {
+        "k": 75,
+        "Z": 1393,
+        "factors": [
+          7,
+          199
+        ]
+      },
+      {
+        "k": 82,
+        "Z": 1519,
+        "factors": [
+          7,
+          7,
+          31
+        ]
+      },
+      {
+        "k": 89,
+        "Z": 1645,
+        "factors": [
+          5,
+          7,
+          47
+        ]
+      },
+      {
+        "k": 96,
+        "Z": 1771,
+        "factors": [
+          7,
+          11,
+          23
+        ]
+      }
+    ],
+    "violations": []
+  },
+  "lattice_points": [
+    {
+      "k": 0,
+      "Z": 43,
+      "phase": 0,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        43
+      ]
+    },
+    {
+      "k": 1,
+      "Z": 61,
+      "phase": 1,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        61
+      ]
+    },
+    {
+      "k": 2,
+      "Z": 79,
+      "phase": 2,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        79
+      ]
+    },
+    {
+      "k": 3,
+      "Z": 97,
+      "phase": 3,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        97
+      ]
+    },
+    {
+      "k": 4,
+      "Z": 115,
+      "phase": 4,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        23
+      ]
+    },
+    {
+      "k": 5,
+      "Z": 133,
+      "phase": 5,
+      "sector": "SYNC_ISLAND",
+      "is_prime": false,
+      "is_sync_island": true,
+      "factors": [
+        7,
+        19
+      ]
+    },
+    {
+      "k": 6,
+      "Z": 151,
+      "phase": 6,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        151
+      ]
+    },
+    {
+      "k": 7,
+      "Z": 169,
+      "phase": 0,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        13,
+        13
+      ]
+    },
+    {
+      "k": 8,
+      "Z": 187,
+      "phase": 1,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        11,
+        17
+      ]
+    },
+    {
+      "k": 9,
+      "Z": 205,
+      "phase": 2,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        41
+      ]
+    },
+    {
+      "k": 10,
+      "Z": 223,
+      "phase": 3,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        223
+      ]
+    },
+    {
+      "k": 11,
+      "Z": 241,
+      "phase": 4,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        241
+      ]
+    },
+    {
+      "k": 12,
+      "Z": 259,
+      "phase": 5,
+      "sector": "SYNC_ISLAND",
+      "is_prime": false,
+      "is_sync_island": true,
+      "factors": [
+        7,
+        37
+      ]
+    },
+    {
+      "k": 13,
+      "Z": 277,
+      "phase": 6,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        277
+      ]
+    },
+    {
+      "k": 14,
+      "Z": 295,
+      "phase": 0,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        59
+      ]
+    },
+    {
+      "k": 15,
+      "Z": 313,
+      "phase": 1,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        313
+      ]
+    },
+    {
+      "k": 16,
+      "Z": 331,
+      "phase": 2,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        331
+      ]
+    },
+    {
+      "k": 17,
+      "Z": 349,
+      "phase": 3,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        349
+      ]
+    },
+    {
+      "k": 18,
+      "Z": 367,
+      "phase": 4,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        367
+      ]
+    },
+    {
+      "k": 19,
+      "Z": 385,
+      "phase": 5,
+      "sector": "SYNC_ISLAND",
+      "is_prime": false,
+      "is_sync_island": true,
+      "factors": [
+        5,
+        7,
+        11
+      ]
+    },
+    {
+      "k": 20,
+      "Z": 403,
+      "phase": 6,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        13,
+        31
+      ]
+    },
+    {
+      "k": 21,
+      "Z": 421,
+      "phase": 0,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        421
+      ]
+    },
+    {
+      "k": 22,
+      "Z": 439,
+      "phase": 1,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        439
+      ]
+    },
+    {
+      "k": 23,
+      "Z": 457,
+      "phase": 2,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        457
+      ]
+    },
+    {
+      "k": 24,
+      "Z": 475,
+      "phase": 3,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        5,
+        19
+      ]
+    },
+    {
+      "k": 25,
+      "Z": 493,
+      "phase": 4,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        17,
+        29
+      ]
+    },
+    {
+      "k": 26,
+      "Z": 511,
+      "phase": 5,
+      "sector": "SYNC_ISLAND",
+      "is_prime": false,
+      "is_sync_island": true,
+      "factors": [
+        7,
+        73
+      ]
+    },
+    {
+      "k": 27,
+      "Z": 529,
+      "phase": 6,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        23,
+        23
+      ]
+    },
+    {
+      "k": 28,
+      "Z": 547,
+      "phase": 0,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        547
+      ]
+    },
+    {
+      "k": 29,
+      "Z": 565,
+      "phase": 1,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        113
+      ]
+    },
+    {
+      "k": 30,
+      "Z": 583,
+      "phase": 2,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        11,
+        53
+      ]
+    },
+    {
+      "k": 31,
+      "Z": 601,
+      "phase": 3,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        601
+      ]
+    },
+    {
+      "k": 32,
+      "Z": 619,
+      "phase": 4,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        619
+      ]
+    },
+    {
+      "k": 33,
+      "Z": 637,
+      "phase": 5,
+      "sector": "SYNC_ISLAND",
+      "is_prime": false,
+      "is_sync_island": true,
+      "factors": [
+        7,
+        7,
+        13
+      ]
+    },
+    {
+      "k": 34,
+      "Z": 655,
+      "phase": 6,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        131
+      ]
+    },
+    {
+      "k": 35,
+      "Z": 673,
+      "phase": 0,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        673
+      ]
+    },
+    {
+      "k": 36,
+      "Z": 691,
+      "phase": 1,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        691
+      ]
+    },
+    {
+      "k": 37,
+      "Z": 709,
+      "phase": 2,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        709
+      ]
+    },
+    {
+      "k": 38,
+      "Z": 727,
+      "phase": 3,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        727
+      ]
+    },
+    {
+      "k": 39,
+      "Z": 745,
+      "phase": 4,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        149
+      ]
+    },
+    {
+      "k": 40,
+      "Z": 763,
+      "phase": 5,
+      "sector": "SYNC_ISLAND",
+      "is_prime": false,
+      "is_sync_island": true,
+      "factors": [
+        7,
+        109
+      ]
+    },
+    {
+      "k": 41,
+      "Z": 781,
+      "phase": 6,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        11,
+        71
+      ]
+    },
+    {
+      "k": 42,
+      "Z": 799,
+      "phase": 0,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        17,
+        47
+      ]
+    },
+    {
+      "k": 43,
+      "Z": 817,
+      "phase": 1,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        19,
+        43
+      ]
+    },
+    {
+      "k": 44,
+      "Z": 835,
+      "phase": 2,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        167
+      ]
+    },
+    {
+      "k": 45,
+      "Z": 853,
+      "phase": 3,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        853
+      ]
+    },
+    {
+      "k": 46,
+      "Z": 871,
+      "phase": 4,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        13,
+        67
+      ]
+    },
+    {
+      "k": 47,
+      "Z": 889,
+      "phase": 5,
+      "sector": "SYNC_ISLAND",
+      "is_prime": false,
+      "is_sync_island": true,
+      "factors": [
+        7,
+        127
+      ]
+    },
+    {
+      "k": 48,
+      "Z": 907,
+      "phase": 6,
+      "sector": "ACTIVE",
+      "is_prime": true,
+      "is_sync_island": false,
+      "factors": [
+        907
+      ]
+    },
+    {
+      "k": 49,
+      "Z": 925,
+      "phase": 0,
+      "sector": "UNSTABLE",
+      "is_prime": false,
+      "is_sync_island": false,
+      "factors": [
+        5,
+        5,
+        37
+      ]
+    }
+  ],
+  "hannah_analysis": [
+    {
+      "k": 0,
+      "Z": 43,
+      "prime": 191,
+      "quotient": 4,
+      "remainder": 7,
+      "mode": "SYNC (oscillatory)",
+      "decomposition": "191 = 4 \u00d7 46 + 7"
+    },
+    {
+      "k": 1,
+      "Z": 61,
+      "prime": 283,
+      "quotient": 6,
+      "remainder": 7,
+      "mode": "SYNC (oscillatory)",
+      "decomposition": "283 = 6 \u00d7 46 + 7"
+    },
+    {
+      "k": 2,
+      "Z": 79,
+      "prime": 401,
+      "quotient": 8,
+      "remainder": 33,
+      "mode": "GENERATOR (stable)",
+      "decomposition": "401 = 8 \u00d7 46 + 33"
+    },
+    {
+      "k": 3,
+      "Z": 97,
+      "prime": 509,
+      "quotient": 11,
+      "remainder": 3,
+      "mode": "GENERATOR (stable)",
+      "decomposition": "509 = 11 \u00d7 46 + 3"
+    },
+    {
+      "k": 4,
+      "Z": 115,
+      "prime": 631,
+      "quotient": 13,
+      "remainder": 33,
+      "mode": "GENERATOR (stable)",
+      "decomposition": "631 = 13 \u00d7 46 + 33"
+    },
+    {
+      "k": 5,
+      "Z": 133,
+      "prime": 751,
+      "quotient": 16,
+      "remainder": 15,
+      "mode": "TORSION (anomaly)",
+      "decomposition": "751 = 16 \u00d7 46 + 15"
+    },
+    {
+      "k": 6,
+      "Z": 151,
+      "prime": 877,
+      "quotient": 19,
+      "remainder": 3,
+      "mode": "GENERATOR (stable)",
+      "decomposition": "877 = 19 \u00d7 46 + 3"
+    },
+    {
+      "k": 7,
+      "Z": 169,
+      "prime": 1009,
+      "quotient": 21,
+      "remainder": 43,
+      "mode": "OTHER (43)",
+      "decomposition": "1009 = 21 \u00d7 46 + 43"
+    },
+    {
+      "k": 8,
+      "Z": 187,
+      "prime": 1117,
+      "quotient": 24,
+      "remainder": 13,
+      "mode": "OTHER (13)",
+      "decomposition": "1117 = 24 \u00d7 46 + 13"
+    },
+    {
+      "k": 9,
+      "Z": 205,
+      "prime": 1259,
+      "quotient": 27,
+      "remainder": 17,
+      "mode": "OTHER (17)",
+      "decomposition": "1259 = 27 \u00d7 46 + 17"
+    },
+    {
+      "k": 10,
+      "Z": 223,
+      "prime": 1409,
+      "quotient": 30,
+      "remainder": 29,
+      "mode": "OTHER (29)",
+      "decomposition": "1409 = 30 \u00d7 46 + 29"
+    },
+    {
+      "k": 11,
+      "Z": 241,
+      "prime": 1523,
+      "quotient": 33,
+      "remainder": 5,
+      "mode": "OTHER (5)",
+      "decomposition": "1523 = 33 \u00d7 46 + 5"
+    },
+    {
+      "k": 12,
+      "Z": 259,
+      "prime": 1637,
+      "quotient": 35,
+      "remainder": 27,
+      "mode": "OTHER (27)",
+      "decomposition": "1637 = 35 \u00d7 46 + 27"
+    },
+    {
+      "k": 13,
+      "Z": 277,
+      "prime": 1787,
+      "quotient": 38,
+      "remainder": 39,
+      "mode": "OTHER (39)",
+      "decomposition": "1787 = 38 \u00d7 46 + 39"
+    },
+    {
+      "k": 14,
+      "Z": 295,
+      "prime": 1933,
+      "quotient": 42,
+      "remainder": 1,
+      "mode": "OTHER (1)",
+      "decomposition": "1933 = 42 \u00d7 46 + 1"
+    },
+    {
+      "k": 15,
+      "Z": 313,
+      "prime": 2081,
+      "quotient": 45,
+      "remainder": 11,
+      "mode": "OTHER (11)",
+      "decomposition": "2081 = 45 \u00d7 46 + 11"
+    },
+    {
+      "k": 16,
+      "Z": 331,
+      "prime": 2221,
+      "quotient": 48,
+      "remainder": 13,
+      "mode": "OTHER (13)",
+      "decomposition": "2221 = 48 \u00d7 46 + 13"
+    },
+    {
+      "k": 17,
+      "Z": 349,
+      "prime": 2351,
+      "quotient": 51,
+      "remainder": 5,
+      "mode": "OTHER (5)",
+      "decomposition": "2351 = 51 \u00d7 46 + 5"
+    },
+    {
+      "k": 18,
+      "Z": 367,
+      "prime": 2477,
+      "quotient": 53,
+      "remainder": 39,
+      "mode": "OTHER (39)",
+      "decomposition": "2477 = 53 \u00d7 46 + 39"
+    },
+    {
+      "k": 19,
+      "Z": 385,
+      "prime": 2659,
+      "quotient": 57,
+      "remainder": 37,
+      "mode": "OTHER (37)",
+      "decomposition": "2659 = 57 \u00d7 46 + 37"
+    }
+  ],
+  "e7_connection": {
+    "dim_equals_first_island": true,
+    "rank_equals_sync": true,
+    "roots_formula": true,
+    "factorization": true,
+    "all_verified": true,
+    "data": {
+      "dimension": 133,
+      "rank": 7,
+      "roots": 126,
+      "hc_factorization": "133 = 7 \u00d7 19 = sync \u00d7 ratchet"
+    }
+  },
+  "pariah_analysis": {
+    "groups": {
+      "J1": {
+        "name": "J1",
+        "order": 175560,
+        "divisible_by_7": true,
+        "power_of_7": 1,
+        "contains_p7_17": false,
+        "sector": "HIDDEN (sync-cloaked)"
+      },
+      "J3": {
+        "name": "J3",
+        "order": 50232960,
+        "divisible_by_7": false,
+        "power_of_7": 0,
+        "contains_p7_17": true,
+        "sector": "ACTIVE (visible)"
+      },
+      "J4": {
+        "name": "J4",
+        "order": 86775571046077562880,
+        "divisible_by_7": true,
+        "power_of_7": 1,
+        "contains_p7_17": false,
+        "sector": "HIDDEN (sync-cloaked)"
+      },
+      "Ru": {
+        "name": "Ru",
+        "order": 145926144000,
+        "divisible_by_7": true,
+        "power_of_7": 1,
+        "contains_p7_17": false,
+        "sector": "HIDDEN (sync-cloaked)"
+      },
+      "ON": {
+        "name": "ON",
+        "order": 460815505920,
+        "divisible_by_7": true,
+        "power_of_7": 3,
+        "contains_p7_17": false,
+        "sector": "HIDDEN (sync-cloaked)"
+      },
+      "Ly": {
+        "name": "Ly",
+        "order": 51765179004000000,
+        "divisible_by_7": true,
+        "power_of_7": 1,
+        "contains_p7_17": false,
+        "sector": "HIDDEN (sync-cloaked)"
+      }
+    },
+    "hidden_count": 5,
+    "active_count": 1,
+    "hidden_fraction": 0.8333333333333334,
+    "random_probability": 0.00031449481083562115,
+    "statistical_significance": 3179.7027027027034
+  },
+  "phase_statistics": {
+    "0": {
+      "total": 10,
+      "primes": 5,
+      "sync_islands": 0,
+      "composites": 5,
+      "stability_fraction": 0.5
+    },
+    "1": {
+      "total": 10,
+      "primes": 5,
+      "sync_islands": 0,
+      "composites": 5,
+      "stability_fraction": 0.5
+    },
+    "2": {
+      "total": 10,
+      "primes": 6,
+      "sync_islands": 0,
+      "composites": 4,
+      "stability_fraction": 0.6
+    },
+    "3": {
+      "total": 10,
+      "primes": 7,
+      "sync_islands": 0,
+      "composites": 3,
+      "stability_fraction": 0.7
+    },
+    "4": {
+      "total": 10,
+      "primes": 6,
+      "sync_islands": 0,
+      "composites": 4,
+      "stability_fraction": 0.6
+    },
+    "5": {
+      "total": 10,
+      "primes": 0,
+      "sync_islands": 10,
+      "composites": 0,
+      "stability_fraction": 1.0
+    },
+    "6": {
+      "total": 10,
+      "primes": 4,
+      "sync_islands": 0,
+      "composites": 6,
+      "stability_fraction": 0.4
+    }
+  },
+  "summary": {
+    "period7_verified": true,
+    "num_sync_islands_found": 14,
+    "first_5_islands": [
+      133,
+      259,
+      385,
+      511,
+      637
+    ],
+    "e7_connection_verified": true,
+    "pariah_hidden_fraction": 0.8333333333333334,
+    "pariah_significance": 3179.7027027027034,
+    "phase5_is_pure_sync": true
+  }
+}

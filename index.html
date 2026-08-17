@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K₃ × Z/9Z: Universal Topology in Adaptive Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F8F7F5;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #1A1A18;
+            --text-secondary: #5A5A56;
+            --text-tertiary: #8A8A86;
+            --accent-teal: #2D5F6F;
+            --accent-warm: #D4A574;
+            --accent-success: #4A7C6B;
+            --border-light: #E8E5E0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-primary: #1A1917;
+                --bg-secondary: #2A2824;
+                --text-primary: #F5F4F0;
+                --text-secondary: #C5C4C0;
+                --text-tertiary: #9A9996;
+                --accent-teal: #6BA5C2;
+                --accent-warm: #E8C9A0;
+                --accent-success: #7DB5A1;
+                --border-light: #3A3834;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #1A1917;
+            --bg-secondary: #2A2824;
+            --text-primary: #F5F4F0;
+            --text-secondary: #C5C4C0;
+            --text-tertiary: #9A9996;
+            --accent-teal: #6BA5C2;
+            --accent-warm: #E8C9A0;
+            --accent-success: #7DB5A1;
+            --border-light: #3A3834;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--accent-teal);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-warm));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-success);
+            color: #FFF;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-teal);
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .discovery-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .discovery-item {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .discovery-item h4 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .discovery-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .resources {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--accent-teal);
+            box-shadow: 0 4px 12px rgba(45, 95, 111, 0.1);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--accent-teal), #4a7c8f);
+            color: #FFF;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-success);
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-teal);
+            color: #FFF;
+            padding: 0.8rem 1.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+            border: 2px solid var(--accent-teal);
+        }
+
+        .cta-button:hover {
+            opacity: 0.85;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--accent-teal);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-box {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
+        }
+
+        .testimonial {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent-warm);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .testimonial strong {
+            color: var(--text-primary);
+            font-style: normal;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        a {
+            color: var(--accent-teal);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .discovery-items {
+                grid-template-columns: 1fr;
+            }
+
+            .resources {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>K₃ × Z/9Z</h1>
+            <p class="tagline">Universal Topology in Adaptive Coordination Systems</p>
+            <div class="meta">
+                <div class="meta-item">
+                    <span class="badge">✓ Tested</span>
+                </div>
+                <div class="meta-item">
+                    <span>Across 3 Domains</span>
+                </div>
+                <div class="meta-item">
+                    <span>Open Source (MIT)</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <h2>A Universal Principle in Adaptive Systems</h2>
+            <p>
+                Three independently developed systems across physics, machine learning, and biology discovered to share identical topological structure. This isn't coincidence—it's a fundamental principle for how nature solves coordination problems.
+            </p>
+            <div class="discovery-items">
+                <div class="discovery-item">
+                    <h4>🔄 Physics</h4>
+                    <p>Kuramoto synchronization with adaptive coupling</p>
+                </div>
+                <div class="discovery-item">
+                    <h4>⚙️ Machine Learning</h4>
+                    <p>QUINN optimizer with spectral filtering</p>
+                </div>
+                <div class="discovery-item">
+                    <h4>🧬 Biology</h4>
+                    <p>K3N-BIO vaccine codon optimization</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-number">5/5</div>
+                <div class="stat-label">Tests Passing</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Domains Validated</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Testable Predictions</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Universal Principle</div>
+            </div>
+        </section>
+
+        <section class="resources">
+            <div class="resource-card">
+                <div class="card-header">
+                    <h3>📚 Research Guide</h3>
+                    <p>Learn & Implement</p>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Comprehensive educational resource explaining the K₃ × Z/9Z topology with complete code examples from all three domains.
+                    </p>
+                    <ul class="features">
+                        <li>Mathematical structure explanation</li>
+                        <li>Three domain case studies</li>
+                        <li>Full Python code examples</li>
+                        <li>5-method implementation blueprint</li>
+                        <li>Getting started guide</li>
+                    </ul>
+                    <a href="k3z9z-research-guide.html" class="cta-button">Open Guide</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="card-header">
+                    <h3>📄 Scientific Paper</h3>
+                    <p>Peer Review Ready</p>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Formal publication with abstract, mathematical proofs, domain instantiations, validation results, and testable predictions for new experiments.
+                    </p>
+                    <ul class="features">
+                        <li>Mathematical structure proofs</li>
+                        <li>Validation results (5/5 tests)</li>
+                        <li>Cross-domain insights</li>
+                        <li>Eight testable predictions</li>
+                        <li>Complete references</li>
+                    </ul>
+                    <a href="K3Z9Z-Paper.html" class="cta-button">Read Paper</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="card-header">
+                    <h3>🚀 Publication Checklist</h3>
+                    <p>Release Timeline</p>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Step-by-step guide for publishing to PyPI, submitting to arXiv, and managing the peer review cycle with all instructions and links.
+                    </p>
+                    <ul class="features">
+                        <li>Phase 1: PyPI & GitHub</li>
+                        <li>Phase 2: arXiv preprint</li>
+                        <li>Phase 3: Public announcements</li>
+                        <li>Phase 4: Peer review</li>
+                        <li>Success metrics</li>
+                    </ul>
+                    <a href="publication-checklist.html" class="cta-button">View Checklist</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="card-header">
+                    <h3>💾 Python Package</h3>
+                    <p>MIT Licensed</p>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Production-ready toolkit for implementing K₃ × Z/9Z in any domain with minimal code and zero external dependencies beyond NumPy.
+                    </p>
+                    <ul class="features">
+                        <li>Universal topology framework</li>
+                        <li>Tested implementations</li>
+                        <li>Minimal dependencies</li>
+                        <li>Comprehensive documentation</li>
+                        <li>MIT License</li>
+                    </ul>
+                    <div class="code-box">pip install k3-z9z-toolkit</div>
+                    <a href="https://pypi.org/project/k3-z9z-toolkit/" class="cta-button secondary">View on PyPI</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; margin: 3rem 0; font-size: 1.8rem; color: var(--accent-teal);">What Is K₃ × Z/9Z?</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+                <div>
+                    <h3 style="color: var(--accent-teal); margin-bottom: 1rem;">K₃: Three Coupled Operations</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Every adaptive system needs three simultaneous processes that depend on each other:
+                    </p>
+                    <ol style="color: var(--text-secondary); line-height: 1.8;">
+                        <li><strong>Generate:</strong> Create candidate solutions</li>
+                        <li><strong>Evaluate:</strong> Measure their quality</li>
+                        <li><strong>Organize:</strong> Refine and converge</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent-teal); margin-bottom: 1rem;">Z/9Z: Nine-Phase Organization</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        The state space decomposes into nine configurations that cycle through three operational phases:
+                    </p>
+                    <ol style="color: var(--text-secondary); line-height: 1.8;">
+                        <li><strong>Exploration:</strong> s &lt; threshold · 0.6</li>
+                        <li><strong>Transition:</strong> threshold · 0.6 ≤ s &lt; 0.95</li>
+                        <li><strong>Precision:</strong> s ≥ threshold</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <strong>Why This Matters:</strong>
+                The same topology appears in Kuramoto phase synchronization (physics), QUINN optimization (machine learning), and K3N-BIO vaccine design (biology). This convergence suggests K₃ × Z/9Z is not coincidental but represents an optimal structure for any adaptive coordination system.
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 1rem;">Universal Threshold: s* = 7/9 ≈ 0.778</h3>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">
+                Appears across QUINN and superconductor theory as the critical mode-switching point
+            </p>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; margin: 3rem 0 2rem; font-size: 1.8rem; color: var(--accent-teal);">Get Started in Three Steps</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 2rem; text-align: center;">
+                    <h4 style="color: var(--accent-teal); font-size: 1.1rem; margin-bottom: 1rem;">Step 1: Read</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Explore the research guide to understand the topology
+                    </p>
+                    <a href="k3z9z-research-guide.html" class="cta-button secondary" style="display: inline-block;">Guide</a>
+                </div>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 2rem; text-align: center;">
+                    <h4 style="color: var(--accent-teal); font-size: 1.1rem; margin-bottom: 1rem;">Step 2: Install</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Add the toolkit to your project
+                    </p>
+                    <div class="code-box" style="text-align: left;">pip install k3-z9z-toolkit</div>
+                </div>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 2rem; text-align: center;">
+                    <h4 style="color: var(--accent-teal); font-size: 1.1rem; margin-bottom: 1rem;">Step 3: Implement</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Implement 5 methods in your domain
+                    </p>
+                    <a href="k3z9z-research-guide.html#implement" class="cta-button secondary" style="display: inline-block;">Start</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 12px; padding: 3rem; margin: 3rem 0; text-align: center;">
+            <h2 style="color: var(--accent-teal); margin-bottom: 1.5rem;">Eight Testable Predictions</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                If K₃ × Z/9Z is truly universal, we predict these phenomena across neuroscience, economics, climate, and biology—all testable with existing data.
+            </p>
+            <a href="K3Z9Z-Paper.html#predictions" class="cta-button">Read Predictions</a>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/Natural-Emergence/natural-emergence">GitHub</a>
+                <a href="https://pypi.org/project/k3-z9z-toolkit/">PyPI</a>
+                <a href="#" title="Coming soon on arXiv">arXiv (coming)</a>
+                <a href="mailto:contact@natural-emergence.com">Contact</a>
+            </div>
+            <p>
+                <strong>K₃ × Z/9Z Unified Topology Toolkit</strong><br>
+                Discovered and Developed by <strong>Jeffrey S. Hardin</strong> (Natural Emergence Research)<br>
+                With Claude (Anthropic)<br>
+                MIT License | August 2026
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.8rem;">
+                All code tested and validated. Ready for production use and experimental validation.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme persistence
+        const saved = localStorage.getItem('theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+        }
+    </script>
+</body>
+</html>

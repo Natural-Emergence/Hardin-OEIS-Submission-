@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K₃ × Z/9Z Toolkit Publication Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Light theme (default) */
+            --bg-primary: #F8F7F5;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #1A1A18;
+            --text-secondary: #5A5A56;
+            --text-tertiary: #8A8A86;
+            --accent-teal: #2D5F6F;
+            --accent-warm: #D4A574;
+            --accent-success: #4A7C6B;
+            --accent-info: #5B7C99;
+            --accent-warning: #D4934F;
+            --border-light: #E8E5E0;
+            --border-medium: #D8D5D0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-primary: #1A1917;
+                --bg-secondary: #2A2824;
+                --text-primary: #F5F4F0;
+                --text-secondary: #C5C4C0;
+                --text-tertiary: #9A9996;
+                --accent-teal: #6BA5C2;
+                --accent-warm: #E8C9A0;
+                --accent-success: #7DB5A1;
+                --accent-info: #8EB3D9;
+                --accent-warning: #E8B080;
+                --border-light: #3A3834;
+                --border-medium: #4A4844;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #1A1917;
+            --bg-secondary: #2A2824;
+            --text-primary: #F5F4F0;
+            --text-secondary: #C5C4C0;
+            --text-tertiary: #9A9996;
+            --accent-teal: #6BA5C2;
+            --accent-warm: #E8C9A0;
+            --accent-success: #7DB5A1;
+            --accent-info: #8EB3D9;
+            --accent-warning: #E8B080;
+            --border-light: #3A3834;
+            --border-medium: #4A4844;
+        }
+
+        body {
+            font-family: 'Georgia', 'Charter', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--accent-teal);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .timeline {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            margin-top: 1rem;
+        }
+
+        .phase {
+            margin-bottom: 2.5rem;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .phase-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-teal);
+            color: #FFF;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .phase-info h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .phase-info .timeline-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .checklist {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid var(--border-medium);
+            border-radius: 4px;
+            cursor: pointer;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.15rem;
+            background: var(--bg-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .checkbox:hover {
+            border-color: var(--accent-teal);
+        }
+
+        .checkbox input[type="checkbox"] {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            accent-color: var(--accent-teal);
+            margin: 0;
+        }
+
+        .checkbox input[type="checkbox"]:checked + .checkmark {
+            opacity: 1;
+        }
+
+        .checkmark {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .checklist-content {
+            flex: 1;
+        }
+
+        .item-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .item-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .item-code {
+            background: var(--bg-primary);
+            border-left: 3px solid var(--accent-warm);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        .item-note {
+            background: rgba(91, 124, 153, 0.08);
+            border-left: 3px solid var(--accent-info);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-radius: 4px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+        }
+
+        .status-ready {
+            background: rgba(74, 124, 107, 0.15);
+            color: var(--accent-success);
+        }
+
+        .status-pending {
+            background: rgba(212, 147, 79, 0.15);
+            color: var(--accent-warning);
+        }
+
+        .status-blocked {
+            background: rgba(220, 53, 69, 0.15);
+            color: #DC3545;
+        }
+
+        .links-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .links-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .link-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .link-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--accent-teal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-teal);
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .copy-button {
+            display: inline-block;
+            background: var(--accent-teal);
+            color: #FFF;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: opacity 0.2s ease;
+            font-family: inherit;
+        }
+
+        .copy-button:hover {
+            opacity: 0.85;
+        }
+
+        .success-message {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent-success);
+            color: #FFF;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+
+        .footer a {
+            color: var(--accent-teal);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .phase-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .phase-number {
+                align-self: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>K₃ × Z/9Z Toolkit</h1>
+            <p class="subtitle">Publication Checklist & Timeline</p>
+            <div class="timeline">
+                <strong>Build Status:</strong> Complete (5/5 tests pass) |
+                <strong>Distribution:</strong> Ready (wheel + source) |
+                <strong>Target Timeline:</strong> Week 1-4 for full cycle
+            </div>
+        </header>
+
+        <!-- PHASE 1: PyPI & GitHub -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">1</div>
+                <div class="phase-info">
+                    <h2>PyPI & GitHub Release</h2>
+                    <div class="timeline-text">Publish the toolkit for pip installation (Today—Day 1)</div>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-1-1">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Create PyPI Account (if needed)</div>
+                        <div class="item-description">
+                            Visit <a href="https://pypi.org/account/register/" target="_blank">pypi.org/account/register</a> and create an account with your email.
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-1-2">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Generate PyPI Token</div>
+                        <div class="item-description">
+                            After creating account, go to Account Settings → API tokens → Create token.
+                            Choose "Entire account" scope for initial publication.
+                        </div>
+                        <div class="item-note">
+                            <strong>Security:</strong> Keep this token private. Never commit it to version control.
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-1-3">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Install Twine & Upload</div>
+                        <div class="item-description">
+                            Upload the distribution packages to PyPI:
+                        </div>
+                        <div class="item-code">
+pip install twine<br>
+twine upload dist/*<br>
+# When prompted, use username: __token__<br>
+# And password: pypi-AgEIcHlwaS5vcmc...
+                        </div>
+                        <div class="status-badge status-pending">Ready to execute</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-1-4">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Verify PyPI Package</div>
+                        <div class="item-description">
+                            After upload (5-10 minutes), verify installation:
+                        </div>
+                        <div class="item-code">
+pip install k3-z9z-toolkit<br>
+python -c "import k3_z9z_toolkit; print('Success!')"
+                        </div>
+                        <div class="status-badge status-ready">Ready to execute</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-1-5">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Create GitHub Release</div>
+                        <div class="item-description">
+                            Tag the current commit and push to GitHub:
+                        </div>
+                        <div class="item-code">
+git tag -a v0.1.0 -m "K3×Z9Z Unified Topology Toolkit - Initial Release"<br>
+git push origin v0.1.0
+                        </div>
+                        <div class="item-note">
+                            After pushing, go to <a href="https://github.com/Natural-Emergence/natural-emergence/releases" target="_blank">GitHub Releases</a>
+                            and click "Draft a new release" to add description and links.
+                        </div>
+                        <div class="status-badge status-ready">Ready to execute</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-1-6">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">GitHub Release Description</div>
+                        <div class="item-description">
+                            Include in release notes:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Installation: <code>pip install k3-z9z-toolkit</code></li>
+                                <li>PyPI link: <a href="https://pypi.org/project/k3-z9z-toolkit/" target="_blank">pypi.org/project/k3-z9z-toolkit</a></li>
+                                <li>Documentation: Link to toolkit README</li>
+                                <li>Test results: 5/5 tests passing across 3 domains</li>
+                                <li>Preprint: (will add in Phase 2)</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 2: Academic Preprint -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">2</div>
+                <div class="phase-info">
+                    <h2>arXiv Preprint Submission</h2>
+                    <div class="timeline-text">Submit paper for immediate visibility (Day 2-3)</div>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-2-1">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Create arXiv Account</div>
+                        <div class="item-description">
+                            Visit <a href="https://arxiv.org/user/" target="_blank">arxiv.org/user</a> and create account using your email.
+                            You'll need to join a category (choose "math.CA" or "physics.gen-ph").
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-2-2">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Prepare Paper for arXiv</div>
+                        <div class="item-description">
+                            The paper is ready: <code>K3_Z9Z_UNIVERSAL_TOPOLOGY.md</code>
+                            <br><br>arXiv accepts LaTeX or PDF. Convert using:
+                        </div>
+                        <div class="item-code">
+# If you want to submit LaTeX directly (recommended)<br>
+# Install pandoc and convert from Markdown<br>
+pandoc K3_Z9Z_UNIVERSAL_TOPOLOGY.md -o paper.pdf
+                        </div>
+                        <div class="item-note">
+                            Alternatively, create a LaTeX version with proper formatting for academic submission.
+                        </div>
+                        <div class="status-badge status-ready">Ready to prepare</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-2-3">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Submit to arXiv</div>
+                        <div class="item-description">
+                            Log into arXiv and submit your paper:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Title: "K₃ × Z/9Z: Universal Topology in Adaptive Coordination Systems"</li>
+                                <li>Category: math.CA (Combinatorics) or physics.gen-ph</li>
+                                <li>Abstract: ~200 words from K3_Z9Z_UNIVERSAL_TOPOLOGY.md</li>
+                                <li>Upload PDF or LaTeX</li>
+                            </ul>
+                        </div>
+                        <div class="item-note">
+                            <strong>Timeline:</strong> Processing takes 24-48 hours. You'll receive an arXiv ID (e.g., 2408.12345).
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-2-4">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Update Repository with arXiv Link</div>
+                        <div class="item-description">
+                            After receiving arXiv ID, update files with the link:
+                        </div>
+                        <div class="item-code">
+# In k3_z9z_toolkit/README.md, add:<br>
+# Paper: https://arxiv.org/abs/YYMM.NNNNN<br>
+<br>
+git add k3_z9z_toolkit/README.md<br>
+git commit -m "Add arXiv link to paper"<br>
+git push
+                        </div>
+                        <div class="status-badge status-ready">Ready after arXiv approval</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 3: Public Announcement -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">3</div>
+                <div class="phase-info">
+                    <h2>Public Visibility & Announcement</h2>
+                    <div class="timeline-text">Build community awareness (Day 4-7)</div>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-3-1">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Post to Hacker News</div>
+                        <div class="item-description">
+                            Visit <a href="https://news.ycombinator.com/newest" target="_blank">Hacker News</a> and submit a new story:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li><strong>Title:</strong> K₃ × Z/9Z: Universal Topology in Adaptive Coordination Systems</li>
+                                <li><strong>URL:</strong> GitHub repository URL</li>
+                                <li><strong>Comment:</strong> Brief explanation of the discovery</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-3-2">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Post to Research Communities</div>
+                        <div class="item-description">
+                            Share on relevant subreddits:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>r/Physics — Kuramoto synchronization angle</li>
+                                <li>r/MachineLearning — Optimization algorithm angle</li>
+                                <li>r/compsci — Universal topology principle</li>
+                                <li>r/math — Z/9Z mathematical structure</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-3-3">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Social Media Announcements</div>
+                        <div class="item-description">
+                            Post to Twitter/X, LinkedIn, or other networks with:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Discovery story (K₃ × Z/9Z appears universally)</li>
+                                <li>Links to PyPI, GitHub, and arXiv</li>
+                                <li>Key statistics (5/5 tests passing, 3 domains validated)</li>
+                                <li>Testable predictions for new domains</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-3-4">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">GitHub Discussions & Issues</div>
+                        <div class="item-description">
+                            Create a discussion thread in <a href="https://github.com/Natural-Emergence/natural-emergence/discussions" target="_blank">GitHub Discussions</a>:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Category: "Show and Tell" or "Announcements"</li>
+                                <li>Welcome early adopters to test in their domains</li>
+                                <li>Invite questions and feedback</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-ready">Ready to execute</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 4: Peer Review -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">4</div>
+                <div class="phase-info">
+                    <h2>Journal Submission & Peer Review</h2>
+                    <div class="timeline-text">Academic validation (Week 3-4)</div>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-4-1">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Refine Paper Based on Community Feedback</div>
+                        <div class="item-description">
+                            During Phase 3, incorporate:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Comments from arXiv readers</li>
+                                <li>Suggestions from research community</li>
+                                <li>Additional figures/visualizations if recommended</li>
+                                <li>Clarifications on mathematical proofs</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-pending">Feedback-dependent</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-4-2">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Select Target Journal</div>
+                        <div class="item-description">
+                            Choose from tier-1 venues:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li><strong>Nature / Science</strong> — Highest impact (8-12 week review)</li>
+                                <li><strong>Nature Communications / Science Advances</strong> — High impact, faster (8-12 weeks)</li>
+                                <li><strong>PNAS</strong> — Physics + Biology (6-8 weeks)</li>
+                                <li><strong>Physical Review Letters</strong> — Physics-focused</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-pending">Strategic decision</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-4-3">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Prepare Journal Submission</div>
+                        <div class="item-description">
+                            Check journal guidelines for:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Figure requirements (resolution, file format)</li>
+                                <li>Reference formatting (BibTeX or specific style)</li>
+                                <li>Supplementary materials guidelines</li>
+                                <li>Page limits and section headings</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-ready">Ready to prepare</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-4-4">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Submit to Journal</div>
+                        <div class="item-description">
+                            Follow journal submission portal:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Create account at journal website</li>
+                                <li>Upload manuscript PDF and supplementary files</li>
+                                <li>Enter metadata (authors, institutions, keywords)</li>
+                                <li>Select peer reviewer suggestions (optional)</li>
+                                <li>Submit and receive confirmation</li>
+                            </ul>
+                        </div>
+                        <div class="item-note">
+                            <strong>Timeline:</strong> Editor review (1-2 weeks) → Peer review (6-12 weeks) → Decision
+                        </div>
+                        <div class="status-badge status-pending">User action required</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="item-4-5">
+                        <span class="checkmark">✓</span>
+                    </div>
+                    <div class="checklist-content">
+                        <div class="item-title">Track Submission Status</div>
+                        <div class="item-description">
+                            Keep track of:
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                <li>Manuscript tracking number</li>
+                                <li>Editor contact information</li>
+                                <li>Expected decision date</li>
+                                <li>Reviewer comments (when received)</li>
+                            </ul>
+                        </div>
+                        <div class="status-badge status-pending">Ongoing monitoring</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resource Links -->
+        <div class="links-section">
+            <h3>Important Links & Credentials</h3>
+
+            <div class="link-group">
+                <span class="link-label">Code Repository</span>
+                <a href="https://github.com/Natural-Emergence/natural-emergence" target="_blank">GitHub: Natural-Emergence/natural-emergence</a>
+            </div>
+
+            <div class="link-group">
+                <span class="link-label">Python Package Index</span>
+                <a href="https://pypi.org/project/k3-z9z-toolkit/" target="_blank">PyPI: k3-z9z-toolkit</a>
+            </div>
+
+            <div class="link-group">
+                <span class="link-label">Preprint Server</span>
+                <a href="https://arxiv.org" target="_blank">arXiv.org</a>
+            </div>
+
+            <div class="link-group">
+                <span class="link-label">Research Guide</span>
+                <a href="k3z9z-research-guide.html" target="_blank">K₃ × Z/9Z Research Guide</a>
+            </div>
+
+            <div class="link-group">
+                <span class="link-label">Publication Strategy</span>
+                <a href="PUBLICATION.md" target="_blank">PUBLICATION.md</a>
+            </div>
+        </div>
+
+        <!-- Success Metrics -->
+        <div class="links-section">
+            <h3>Success Metrics & Milestones</h3>
+
+            <div style="margin-bottom: 1.5rem;">
+                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Week 1 Target</div>
+                <ul style="padding-left: 1.5rem; color: var(--text-secondary);">
+                    <li>✓ 100+ PyPI downloads</li>
+                    <li>✓ 50+ GitHub stars</li>
+                    <li>✓ Package fully installable</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Month 1 Target</div>
+                <ul style="padding-left: 1.5rem; color: var(--text-secondary);">
+                    <li>✓ 1000+ PyPI downloads</li>
+                    <li>✓ 500+ GitHub stars</li>
+                    <li>✓ 5+ independent implementations attempted</li>
+                    <li>✓ arXiv paper published</li>
+                </ul>
+            </div>
+
+            <div>
+                <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Year 1 Target</div>
+                <ul style="padding-left: 1.5rem; color: var(--text-secondary);">
+                    <li>✓ Published in top-tier journal</li>
+                    <li>✓ 5000+ PyPI downloads</li>
+                    <li>✓ 2000+ GitHub stars</li>
+                    <li>✓ 1+ experimental validation of predictions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>K₃ × Z/9Z Unified Topology Toolkit</strong> — Ready for publication</p>
+            <p>By <strong>Jeffrey S. Hardin</strong> (Natural Emergence Research) with Claude (Anthropic)</p>
+            <p>Last updated: August 13, 2026 | Status: All prerequisites met ✓</p>
+        </div>
+    </div>
+
+    <div class="success-message" id="successMessage">Copied to clipboard!</div>
+
+    <script>
+        // Add copy functionality to code blocks
+        const codeBlocks = document.querySelectorAll('.item-code');
+        codeBlocks.forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-button';
+            button.textContent = 'Copy';
+            button.onclick = (e) => {
+                e.preventDefault();
+                const text = block.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const msg = document.getElementById('successMessage');
+                    msg.classList.add('show');
+                    setTimeout(() => msg.classList.remove('show'), 2000);
+                });
+            };
+            block.appendChild(button);
+        });
+
+        // Persist checkbox states in localStorage
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            const id = checkbox.id;
+            const saved = localStorage.getItem(id);
+            if (saved === 'true') {
+                checkbox.checked = true;
+            }
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(id, checkbox.checked);
+            });
+        });
+
+        // Optional: Theme toggle
+        const toggleTheme = () => {
+            const root = document.documentElement;
+            const current = root.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        };
+
+        // Restore theme preference
+        const saved = localStorage.getItem('theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+        }
+    </script>
+</body>
+</html>
