@@ -1,0 +1,167 @@
+{
+  "benchmark": "QUINN-Kuramoto Optimized (Branch-and-Bound)",
+  "results": [
+    {
+      "r_initial": 0.1,
+      "r_final": 0.012812896944494532,
+      "depth": 15,
+      "time_ms": 2452.377959,
+      "nodes_explored": 5707,
+      "energy_released": -0.29982352924083144,
+      "speedup_vs_async": 1.0
+    },
+    {
+      "r_initial": 0.1,
+      "r_final": 0.05557318569820381,
+      "depth": 25,
+      "time_ms": 2018.9406026666666,
+      "nodes_explored": 4520,
+      "energy_released": -0.2995417695734137,
+      "speedup_vs_async": 1.0
+    },
+    {
+      "r_initial": 0.1,
+      "r_final": 0.04085957032866833,
+      "depth": 35,
+      "time_ms": 2351.13803,
+      "nodes_explored": 5313,
+      "energy_released": -0.29953386187176095,
+      "speedup_vs_async": 1.0
+    },
+    {
+      "r_initial": 0.3,
+      "r_final": 0.007296544196388089,
+      "depth": 15,
+      "time_ms": 2141.1130523333336,
+      "nodes_explored": 5067,
+      "energy_released": -0.2997723193223814,
+      "speedup_vs_async": 1.1453752786792166
+    },
+    {
+      "r_initial": 0.3,
+      "r_final": 0.01340406624952721,
+      "depth": 25,
+      "time_ms": 2101.239258666667,
+      "nodes_explored": 4945,
+      "energy_released": -0.29957864833057574,
+      "speedup_vs_async": 0.960833277000439
+    },
+    {
+      "r_initial": 0.3,
+      "r_final": 0.019463633241718035,
+      "depth": 35,
+      "time_ms": 3422.9916419999995,
+      "nodes_explored": 7927,
+      "energy_released": -0.29982382634878085,
+      "speedup_vs_async": 0.686866424431661
+    },
+    {
+      "r_initial": 0.5,
+      "r_final": 0.04212182330210146,
+      "depth": 15,
+      "time_ms": 3152.404559,
+      "nodes_explored": 7405,
+      "energy_released": -0.29940098016766287,
+      "speedup_vs_async": 0.7779388441748538
+    },
+    {
+      "r_initial": 0.5,
+      "r_final": 0.013105268170947855,
+      "depth": 25,
+      "time_ms": 1581.123931,
+      "nodes_explored": 3749,
+      "energy_released": -0.29987238776795766,
+      "speedup_vs_async": 1.2769021852637221
+    },
+    {
+      "r_initial": 0.5,
+      "r_final": 0.028075626532218668,
+      "depth": 35,
+      "time_ms": 1811.413877,
+      "nodes_explored": 4178,
+      "energy_released": -0.2996178481066449,
+      "speedup_vs_async": 1.297957391103723
+    },
+    {
+      "r_initial": 0.7,
+      "r_final": 0.010039824350104011,
+      "depth": 15,
+      "time_ms": 2770.5290516666664,
+      "nodes_explored": 6448,
+      "energy_released": -0.7998966971396073,
+      "speedup_vs_async": 0.8851659424125957
+    },
+    {
+      "r_initial": 0.7,
+      "r_final": 0.016204937422984688,
+      "depth": 25,
+      "time_ms": 973.162467,
+      "nodes_explored": 2305,
+      "energy_released": -0.7996498635839314,
+      "speedup_vs_async": 2.074618238093914
+    },
+    {
+      "r_initial": 0.7,
+      "r_final": 0.02876485092279325,
+      "depth": 35,
+      "time_ms": 3981.30595,
+      "nodes_explored": 9062,
+      "energy_released": -0.7997510760781709,
+      "speedup_vs_async": 0.5905444242485308
+    },
+    {
+      "r_initial": 0.9,
+      "r_final": 0.0024088058519556527,
+      "depth": 15,
+      "time_ms": 1295.2754516666666,
+      "nodes_explored": 3046,
+      "energy_released": -1.1999412750063663,
+      "speedup_vs_async": 1.8933254357939522
+    },
+    {
+      "r_initial": 0.9,
+      "r_final": 0.008776277977821972,
+      "depth": 25,
+      "time_ms": 4893.592953,
+      "nodes_explored": 11244,
+      "energy_released": -1.1999320694734277,
+      "speedup_vs_async": 0.41256815228756655
+    },
+    {
+      "r_initial": 0.9,
+      "r_final": 0.010720921948329765,
+      "depth": 35,
+      "time_ms": 3808.2681563333335,
+      "nodes_explored": 8766,
+      "energy_released": -1.1998046714337403,
+      "speedup_vs_async": 0.6173772259419138
+    },
+    {
+      "r_initial": 0.95,
+      "r_final": 0.009126732871180866,
+      "depth": 15,
+      "time_ms": 528.0753733333333,
+      "nodes_explored": 1102,
+      "energy_released": -1.7996889911234828,
+      "speedup_vs_async": 4.643992283753029
+    },
+    {
+      "r_initial": 0.95,
+      "r_final": 0.011640256554860264,
+      "depth": 25,
+      "time_ms": 3648.192615666667,
+      "nodes_explored": 8781,
+      "energy_released": -1.799779818337097,
+      "speedup_vs_async": 0.5534084450466241
+    },
+    {
+      "r_initial": 0.95,
+      "r_final": 0.014664220958929813,
+      "depth": 35,
+      "time_ms": 3094.5202706666664,
+      "nodes_explored": 7235,
+      "energy_released": -1.7997092938576325,
+      "speedup_vs_async": 0.7597746417390518
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "benchmark": "QUINN-Kuramoto Integrated",
+  "configuration": {
+    "n_oscillators": 560,
+    "r_targets": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9,
+      0.95
+    ],
+    "depths": [
+      20,
+      35,
+      50
+    ],
+    "task": "3-SAT"
+  },
+  "results": [
+    {
+      "r_initial": 0.1,
+      "r_final": 0.06291722835710234,
+      "depth": 20,
+      "time_us": 14665352.914199999,
+      "nodes_explored": 10000,
+      "energy_released": 3.939721169554616e-05,
+      "efficiency": 250.0
+    },
+    {
+      "r_initial": 0.1,
+      "r_final": 0.036541648384746044,
+      "depth": 35,
+      "time_us": 14351425.501600001,
+      "nodes_explored": 10000,
+      "energy_released": -0.0004673981676243293,
+      "efficiency": 142.85714285714286
+    },
+    {
+      "r_initial": 0.1,
+      "r_final": 0.028185242890701553,
+      "depth": 50,
+      "time_us": 11546766.7582,
+      "nodes_explored": 8029,
+      "energy_released": -0.00031522974224356537,
+      "efficiency": 80.298
+    },
+    {
+      "r_initial": 0.3,
+      "r_final": 0.07853300602172472,
+      "depth": 20,
+      "time_us": 13289565.5276,
+      "nodes_explored": 9345,
+      "energy_released": -0.0004753630761401657,
+      "efficiency": 233.64000000000001
+    },
+    {
+      "r_initial": 0.3,
+      "r_final": 0.1082080348672075,
+      "depth": 35,
+      "time_us": 11905406.8648,
+      "nodes_explored": 8151,
+      "energy_released": -1.9155267423479732e-05,
+      "efficiency": 116.4457142857143
+    },
+    {
+      "r_initial": 0.3,
+      "r_final": 0.03936285204900969,
+      "depth": 50,
+      "time_us": 12538457.151000002,
+      "nodes_explored": 8012,
+      "energy_released": -0.0003704543739327504,
+      "efficiency": 80.122
+    },
+    {
+      "r_initial": 0.5,
+      "r_final": 0.06521531370294884,
+      "depth": 20,
+      "time_us": 14507623.741999999,
+      "nodes_explored": 10000,
+      "energy_released": -0.00038521342427708566,
+      "efficiency": 250.0
+    },
+    {
+      "r_initial": 0.5,
+      "r_final": 0.05078436080743757,
+      "depth": 35,
+      "time_us": 14465307.9222,
+      "nodes_explored": 10000,
+      "energy_released": -0.0002540565362523513,
+      "efficiency": 142.85714285714286
+    },
+    {
+      "r_initial": 0.5,
+      "r_final": 0.06571026866913506,
+      "depth": 50,
+      "time_us": 13752334.8782,
+      "nodes_explored": 9415,
+      "energy_released": 0.000269662644111476,
+      "efficiency": 94.154
+    },
+    {
+      "r_initial": 0.7,
+      "r_final": 0.07241411383556547,
+      "depth": 20,
+      "time_us": 15177219.458199998,
+      "nodes_explored": 10000,
+      "energy_released": -0.00012074746145821681,
+      "efficiency": 250.0
+    },
+    {
+      "r_initial": 0.7,
+      "r_final": 0.06618381315754662,
+      "depth": 35,
+      "time_us": 8595806.014800001,
+      "nodes_explored": 5240,
+      "energy_released": -8.088508877377072e-05,
+      "efficiency": 74.86
+    },
+    {
+      "r_initial": 0.7,
+      "r_final": 0.06254346134462256,
+      "depth": 50,
+      "time_us": 16200888.0452,
+      "nodes_explored": 10000,
+      "energy_released": -0.00028382701449410183,
+      "efficiency": 100.0
+    },
+    {
+      "r_initial": 0.9,
+      "r_final": 0.06869943753255793,
+      "depth": 20,
+      "time_us": 15236274.513799999,
+      "nodes_explored": 10000,
+      "energy_released": 0.0003877059118620012,
+      "efficiency": 250.0
+    },
+    {
+      "r_initial": 0.9,
+      "r_final": 0.0674510079992276,
+      "depth": 35,
+      "time_us": 21837933.237400003,
+      "nodes_explored": 8592,
+      "energy_released": 0.00018892478506938055,
+      "efficiency": 122.7457142857143
+    },
+    {
+      "r_initial": 0.9,
+      "r_final": 0.056507814008389744,
+      "depth": 50,
+      "time_us": 15138582.1632,
+      "nodes_explored": 10000,
+      "energy_released": 0.0006486238240832767,
+      "efficiency": 100.0
+    },
+    {
+      "r_initial": 0.95,
+      "r_final": 0.023365402314626655,
+      "depth": 20,
+      "time_us": 15033947.5486,
+      "nodes_explored": 10000,
+      "energy_released": -8.000624607440417e-05,
+      "efficiency": 250.0
+    },
+    {
+      "r_initial": 0.95,
+      "r_final": 0.03923803851041584,
+      "depth": 35,
+      "time_us": 15061406.356600001,
+      "nodes_explored": 10000,
+      "energy_released": -0.00033511657096114175,
+      "efficiency": 142.85714285714286
+    },
+    {
+      "r_initial": 0.95,
+      "r_final": 0.06324548476612393,
+      "depth": 50,
+      "time_us": 12952424.9108,
+      "nodes_explored": 8514,
+      "energy_released": 0.00025244811343266545,
+      "efficiency": 85.148
+    }
+  ]
+}
