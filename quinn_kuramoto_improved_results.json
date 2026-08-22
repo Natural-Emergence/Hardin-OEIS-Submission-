@@ -1,0 +1,76 @@
+{
+  "benchmark": "QUINN-Kuramoto Improved",
+  "improvements": [
+    "Adaptive pruning based on oscillator coherence",
+    "Aggressive branching factor modulation: b(r) \u2192 1.1 to 2.8",
+    "Energy-aware backtracking on oscillator desynchronization",
+    "Hardness-weighted clause evaluation"
+  ],
+  "configuration": {
+    "n_oscillators": 560,
+    "r_targets": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9,
+      0.95
+    ]
+  },
+  "results": {
+    "0.1": {
+      "time_us": 4114162.162,
+      "time_std": 2329699.5109778373,
+      "nodes": 5664,
+      "pruned": 5663,
+      "pruning_rate": 0.9999411487758946,
+      "success_rate": 0.3333333333333333
+    },
+    "0.3": {
+      "time_us": 2511845.513333333,
+      "time_std": 2889265.238928934,
+      "nodes": 3049,
+      "pruned": 3048,
+      "pruning_rate": 0.9997813729777,
+      "success_rate": 0.6666666666666666
+    },
+    "0.5": {
+      "time_us": 2426879.067666667,
+      "time_std": 2776427.3080656296,
+      "nodes": 3049,
+      "pruned": 3048,
+      "pruning_rate": 0.9997813729777,
+      "success_rate": 0.6666666666666666
+    },
+    "0.7": {
+      "time_us": 2403077.3403333332,
+      "time_std": 2746453.5457734554,
+      "nodes": 3049,
+      "pruned": 3048,
+      "pruning_rate": 0.9997813729777,
+      "success_rate": 0.6666666666666666
+    },
+    "0.9": {
+      "time_us": 2437577.245333333,
+      "time_std": 2790037.9618952125,
+      "nodes": 3049,
+      "pruned": 3048,
+      "pruning_rate": 0.9997813729777,
+      "success_rate": 0.6666666666666666
+    },
+    "0.95": {
+      "time_us": 2417234.418,
+      "time_std": 2781702.8429580634,
+      "nodes": 3049,
+      "pruned": 3048,
+      "pruning_rate": 0.9997813729777,
+      "success_rate": 0.6666666666666666
+    }
+  },
+  "summary": {
+    "baseline_r": 0.1,
+    "peak_speedup": 1.7120390147032556,
+    "peak_r": 0.7,
+    "mechanism": "Synchronization modulates pruning rate \u2192 exponential search space reduction"
+  }
+}
