@@ -22,8 +22,16 @@ from .canonical import (
     CanonicalSectorState,
     CanonicalSystemState,
 )
+from .initialization import (
+    generate_quinn_initialization_tensor,
+    verify_constraint_manifold,
+    extract_active_sectors,
+    extract_locked_sectors,
+    MishraTanDeformationSpace,
+    QuinnInitializationSeed,
+)
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 __all__ = [
     "SplitCarrierVector",
     "ProjectorAlgebra",
