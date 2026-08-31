@@ -64,14 +64,9 @@ class TestProjectorAlgebraValidation:
     @pytest.fixture
     def identity_projectors(self):
         """32 orthogonal projectors summing to identity."""
-        dim = 8
-        projectors = []
-        for i in range(32):
-            basis_idx = i % dim
-            p = np.zeros((dim, dim), dtype=np.float64)
-            p[basis_idx, basis_idx] = 1.0 / 4.0
-            projectors.append(p)
-        return projectors
+        from geolang_core.initialization import generate_quinn_initialization_tensor
+        seed = generate_quinn_initialization_tensor(seed=42)
+        return seed.projectors
 
     def test_identity_resolution(self, identity_projectors):
         """Sum of projectors equals identity matrix."""
