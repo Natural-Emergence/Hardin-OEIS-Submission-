@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geolang-core"
+version = "0.1.0"
+description = "GeoLang Core Algebra Framework: Quinn's Different Algebra on the split five-sector carrier space"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Proprietary"}
+
+authors = [
+    {name = "Claude Haiku", email = "noreply@anthropic.com"}
+]
+
+dependencies = [
+    "numpy>=1.19.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.10",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["geolang_core"]
+
+[project.urls]
+Homepage = "https://github.com/Natural-Emergence/Hardin-OEIS-Submission-"
+Repository = "https://github.com/Natural-Emergence/Hardin-OEIS-Submission-"
