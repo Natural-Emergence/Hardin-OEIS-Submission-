@@ -1,0 +1,178 @@
+UNIFIED LIBRARY AUDIT SUITE
+======================================================================
+Testing: fpaudit baseline, geolang-inspired, geolang actual
+Scoring: 0.0 = pass, non-zero = fail (binary)
+
+1. SymPy (Symbolic Algebra)
+2. NumPy (Arrays & Linear Algebra)
+3. Python stdlib math
+4. SciPy (Optimization & Integration)
+5. mpmath (Arbitrary Precision)
+6. Decimal (Exact Decimal Arithmetic)
+7. Fractions (Exact Rational Arithmetic)
+8. itertools (Combinatorics)
+9. statistics (Descriptive Statistics)
+10. NetworkX (Graph Theory)
+
+✓ All operations audited
+
+======================================================================
+SYNTHESIZED AUDIT FINDINGS
+======================================================================
+
+FRAMEWORK RESULTS
+----------------------------------------------------------------------
+fpaudit baseline (1e-14 threshold): 24/29 pass (82.8%)
+geolang-inspired (1e-9 threshold): 27/29 pass (93.1%)
+geolang actual (agreement > 0.999999999): 27/29 pass (93.1%)
+
+Combined (all frameworks must pass): 24/29 (82.8%)
+
+CONTAMINATION DETECTION
+----------------------------------------------------------------------
+Seam hits detected: 7
+Channel misalignments detected: 0
+
+LIBRARY SUMMARY (Combined Score)
+----------------------------------------------------------------------
+✓ Decimal         2/2 pass (Grade A)
+✓ Fractions       6/6 pass (Grade A)
+✓ NetworkX        2/2 pass (Grade A)
+✓ NumPy           3/3 pass (Grade A) [1 seam hits]
+✓ SciPy           2/2 pass (Grade A)
+⚠ SymPy           2/3 pass (Grade B) [1 seam hits]
+✓ itertools       2/2 pass (Grade A)
+⚠ math            3/5 pass (Grade C) [3 seam hits]
+⚠ mpmath          0/2 pass (Grade C) [2 seam hits]
+✓ statistics      2/2 pass (Grade A)
+
+FAILED OPERATIONS (Combined Score)
+----------------------------------------------------------------------
+✗ SymPy           sqrt(2)
+  Relative Error: 2.64e-10
+  Agreement: 0.9999999997
+  fpaudit: 1.0 | inspired: 0.0 | geolang: 0.0
+  ⚠ Seam hit detected
+
+✗ math            sqrt(2)
+  Relative Error: 2.64e-10
+  Agreement: 0.9999999997
+  fpaudit: 1.0 | inspired: 0.0 | geolang: 0.0
+  ⚠ Seam hit detected
+
+✗ math            log(10)
+  Relative Error: 4.04e-08
+  Agreement: 0.9999999596
+  fpaudit: 1.0 | inspired: 1.0 | geolang: 1.0
+  ⚠ Seam hit detected
+
+✗ mpmath          sqrt(2)@50dps
+  Relative Error: 2.64e-10
+  Agreement: 0.9999999997
+  fpaudit: 1.0 | inspired: 0.0 | geolang: 0.0
+  ⚠ Seam hit detected
+
+✗ mpmath          π@50dps
+  Relative Error: 1.71e-08
+  Agreement: 0.9999999829
+  fpaudit: 1.0 | inspired: 1.0 | geolang: 1.0
+  ⚠ Seam hit detected
+
+FRAMEWORK COMPARISON
+----------------------------------------------------------------------
+Operation                      fpaudit    inspired   geolang    Status    
+----------------------------------------------------------------------
+SymPy: sqrt(2)                 FAIL       PASS       PASS       FAIL      
+SymPy: solve(x²-4)→2           PASS       PASS       PASS       PASS      
+SymPy: ∫sin(x)dx[0,π/2]        PASS       PASS       PASS       PASS      
+NumPy: det([[2,1],[1,2]])      PASS       PASS       PASS       PASS      
+NumPy: eigenvalue λ₁           PASS       PASS       PASS       PASS      
+NumPy: eigenvalue λ₂           PASS       PASS       PASS       PASS      
+math: sqrt(2)                  FAIL       PASS       PASS       FAIL      
+math: log(10)                  FAIL       FAIL       FAIL       FAIL      
+math: sin(π/6)                 PASS       PASS       PASS       PASS      
+math: cos(0)                   PASS       PASS       PASS       PASS      
+math: factorial(10)            PASS       PASS       PASS       PASS      
+SciPy: minimize (x-3)²         PASS       PASS       PASS       PASS      
+SciPy: ∫sin(x)dx[0,π]          PASS       PASS       PASS       PASS      
+mpmath: sqrt(2)@50dps          FAIL       PASS       PASS       FAIL      
+mpmath: π@50dps                FAIL       FAIL       FAIL       FAIL      
+Decimal: 0.1+0.2               PASS       PASS       PASS       PASS      
+Decimal: Decimal→float         PASS       PASS       PASS       PASS      
+Fractions: 1/3+1/3+1/3         PASS       PASS       PASS       PASS      
+Fractions: 1/(1/(7/11))        PASS       PASS       PASS       PASS      
+Fractions: 19/27               PASS       PASS       PASS       PASS      
+Fractions: 21/27               PASS       PASS       PASS       PASS      
+Fractions: 23/27               PASS       PASS       PASS       PASS      
+Fractions: 27/9                PASS       PASS       PASS       PASS      
+itertools: permutations(5)     PASS       PASS       PASS       PASS      
+itertools: combinations(6,3)   PASS       PASS       PASS       PASS      
+statistics: mean([1,2,3,4,5]   PASS       PASS       PASS       PASS      
+statistics: variance([1,2,3,   PASS       PASS       PASS       PASS      
+NetworkX: shortest_path(1,5)   PASS       PASS       PASS       PASS      
+NetworkX: connected_componen   PASS       PASS       PASS       PASS      
+
+======================================================================
+RECOMMENDATIONS FOR OEIS SUBMISSIONS
+======================================================================
+
+CRITICAL ISSUES
+----------------------------------------------------------------------
+Operations failing combined audit: 5
+  • SymPy: sqrt(2) (rel_error=2.64e-10)
+  • math: sqrt(2) (rel_error=2.64e-10)
+  • math: log(10) (rel_error=4.04e-08)
+  • mpmath: sqrt(2)@50dps (rel_error=2.64e-10)
+  • mpmath: π@50dps (rel_error=1.71e-08)
+
+PRECISION CONCERNS (Seam Hits)
+----------------------------------------------------------------------
+Operations with float/Fraction divergence: 7
+  ✗ SymPy: sqrt(2) - EXCEEDS TOLERANCE
+  ⚠ NumPy: det([[2,1],[1,2]]) - within tolerance but diverges
+  ✗ math: sqrt(2) - EXCEEDS TOLERANCE
+  ✗ math: log(10) - EXCEEDS TOLERANCE
+  ⚠ math: sin(π/6) - within tolerance but diverges
+  ✗ mpmath: sqrt(2)@50dps - EXCEEDS TOLERANCE
+  ✗ mpmath: π@50dps - EXCEEDS TOLERANCE
+
+BEST PRACTICES
+----------------------------------------------------------------------
+✓ Use Fractions for exact rational arithmetic (native geolang type)
+✓ Keep intermediate values as Fraction; convert to float only at output
+✓ Use SciPy/NumPy for linear algebra and optimization (100% pass rate)
+✓ Use itertools, statistics, NetworkX directly (discrete operations)
+
+⚠ Use mpmath for transcendental functions (log, π, √ high precision)
+⚠ Validate critical math.log() calls against mpmath
+⚠ Avoid direct math.π for precision-critical code
+
+VALIDATION PATTERN
+----------------------------------------------------------------------
+
+from fractions import Fraction
+from decimal import Decimal
+
+def validate_oeis_result(computed, exact_fraction: Fraction):
+    exact_dec = Decimal(exact_fraction.numerator) / Decimal(exact_fraction.denominator)
+    computed_dec = Decimal(str(computed))
+
+    if exact_dec != 0:
+        rel_error = abs(computed_dec - exact_dec) / abs(exact_dec)
+
+        # Check all three thresholds
+        fpaudit_pass = float(rel_error) < 1e-14
+        inspired_pass = float(rel_error) < 1e-9
+        geolang_pass = float(rel_error) < 1e-9
+
+        return fpaudit_pass and inspired_pass and geolang_pass
+
+    return computed == 0
+        
+
+======================================================================
+DETAILED RESULTS
+======================================================================
+
+Detailed results saved to: /tmp/unified_audit_results.json
+
